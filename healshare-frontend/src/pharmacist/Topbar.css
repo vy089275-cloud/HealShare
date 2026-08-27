@@ -1,0 +1,61 @@
+/* src/pharmacist/Topbar.css */
+
+.ph-topbar {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: linear-gradient(90deg, #0b6b3f, #0b774c);
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(2, 2, 2, 0.08);
+  z-index: 30;
+}
+
+.ph-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.ph-logo {
+  height: 44px;
+  width: 44px;
+  object-fit: contain;
+}
+
+.ph-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.ph-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ph-sidebar-toggle {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 0.15s ease;
+}
+.ph-sidebar-toggle:hover { background: rgba(255,255,255,0.18); }
+
+.ph-profile-icon {
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+  object-fit: cover;
+  transition: transform .12s ease;
+}
+.ph-profile-icon:hover { transform: scale(1.05); }

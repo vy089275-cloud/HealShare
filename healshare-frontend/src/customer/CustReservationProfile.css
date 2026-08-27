@@ -1,0 +1,136 @@
+/* Overlay: semi-transparent dark for focus */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9990;
+}
+
+/* Card: Modern gradient + shadow + rounded */
+.modal-box {
+  width: 400px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: linear-gradient(135deg, #f0f7ff, #d9e6ff);
+  border-radius: 20px;
+  padding: 24px;
+  color: #1a1a1a;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  animation: fadeUp 0.3s ease-out;
+  border: 1px solid #c4d9ff;
+}
+
+/* Close button: visible and stylish */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #28a745;
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.close-btn:hover {
+  background: #e03e5d;
+  transform: scale(1.1);
+}
+
+/* Header */
+.modal-box h2 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  text-align: center;
+  font-weight: 700;
+  color: #0a3d62;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* City & Location */
+.modal-box p {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #222;
+}
+
+.modal-box a {
+  color: #0066cc;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.modal-box a:hover {
+  text-decoration: underline;
+}
+
+/* Photos Section */
+.photos-section h3 {
+  margin: 20px 0 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0a3d62;
+}
+
+/* Photo Grid */
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+.shop-photo {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.shop-photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Scrollbar for overflow */
+.modal-box::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-box::-webkit-scrollbar-thumb {
+  background: #a0c1ff;
+  border-radius: 10px;
+}
+
+/* Fade animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-box a {
+  color: #007bff; /* blue color */
+  text-decoration: underline; /* underlined */
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.modal-box a:hover {
+  color: #0056b3; /* darker blue on hover */
+  text-decoration: underline;
+}

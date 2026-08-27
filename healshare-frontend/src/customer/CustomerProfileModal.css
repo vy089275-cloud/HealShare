@@ -1,0 +1,124 @@
+/* CustomerProfileModal.css - restored positioning and styles */
+
+.pm-root {
+position: absolute;      /* Position relative to nearest positioned ancestor (topbar) /
+top: 64px;               / Adjust to appear below the topbar /
+right: 12px;             / Align near the profile icon on the right */
+z-index: 60;
+width: 320px;
+}
+
+.pm-card {
+background: #fff;
+border-radius: 12px;
+padding: 14px;
+box-shadow: 0 10px 30px rgba(10, 20, 30, 0.12);
+border: 1px solid rgba(2, 2, 2, 0.04);
+}
+
+.pm-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 8px;
+margin-bottom: 10px;
+}
+
+.pm-header h3 {
+margin: 0;
+font-size: 16px;
+color: #053927;
+}
+
+.pm-actions button {
+margin-left: 8px;
+padding: 6px 10px;
+border-radius: 8px;
+border: none;
+cursor: pointer;
+font-weight: 600;
+}
+
+.pm-edit-btn {
+background: #0b6b3f;
+color: #fff;
+}
+
+.pm-delete-btn {
+background: #e85a5a;
+color: #fff;
+}
+
+.pm-body {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.pm-row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 10px;
+}
+
+.pm-row label {
+font-size: 12px;
+color: #0b6b3f;
+font-weight: 700;
+width: 110px;
+}
+
+.pm-row span {
+color: #0a2830;
+font-size: 13px;
+text-align: right;
+}
+
+.pm-row input {
+width: 100%;
+padding: 6px 8px;
+border: 1px solid #d8e9df;
+border-radius: 6px;
+background: #fbfffb;
+color: #053927;
+}
+
+.pm-confirm {
+margin-top: 10px;
+padding: 10px;
+background: #fff0f0;
+border-radius: 8px;
+border: 1px solid #f0d6d6;
+text-align: center;
+}
+
+.pm-confirm p {
+margin: 0 0 8px 0;
+color: #8a1f1f;
+font-weight: 600;
+}
+
+.pm-confirm-actions {
+display: flex;
+justify-content: center;
+gap: 10px;
+}
+
+.pm-confirm-yes {
+background: #d00000;
+color: white;
+padding: 6px 10px;
+border-radius: 6px;
+border: none;
+cursor: pointer;
+}
+
+.pm-confirm-no {
+background: #bdbdbd;
+color: #111;
+padding: 6px 10px;
+border-radius: 6px;
+border: none;
+cursor: pointer;
+}

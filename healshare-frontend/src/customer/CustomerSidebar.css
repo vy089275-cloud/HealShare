@@ -1,0 +1,62 @@
+/* Reuse same Sidebar styling as pharmacist — duplicate file in customer folder if you want isolated CSS. */
+.ph-sidebar {
+  position: fixed;
+  top: 64px; /* below topbar */
+  left: 0;
+  width: 0;
+  height: calc(100vh - 64px);
+  background: linear-gradient(180deg,#074f2d,#0b6b3f);
+  color: white;
+  overflow: hidden;
+  transition: width 0.24s ease;
+  z-index: 25;
+  box-shadow: 2px 0 12px rgba(2,2,2,0.08);
+}
+
+.ph-sidebar.open {
+  width: 220px;
+}
+
+.ph-side-nav {
+  padding: 28px 18px;
+}
+
+.ph-side-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ph-side-item {
+  padding: 12px 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.12s, color 0.12s;
+}
+
+.ph-side-item:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.ph-logout {
+  margin-top: 28px;
+  background: rgba(255,255,255,0.06);
+}
+
+.ph-sidebar-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 22px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.ph-sidebar-close:hover {
+  transform: scale(1.1);
+}

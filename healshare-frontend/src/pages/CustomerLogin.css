@@ -1,0 +1,20 @@
+.auth-page{
+  min-height:100vh; display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(135deg,#3b7a57 0%,#70a37f 100%); font-family: "Inter", "Segoe UI",sans-serif; padding:20px;
+}
+
+.card{
+  width:100%; max-width:420px; background:#c8e6c9; border-radius:12px; padding:24px;
+  box-shadow:0 10px 30px #00000014;
+}
+
+h2{ text-align:center; color:#013a63; margin-bottom:14px; }
+
+.form{ display:flex; flex-direction:column; gap:10px; }
+.form input{ padding:12px; border-radius:8px; border:1px solid #e6f0fb; font-size:14px; }
+
+.primary{ background:#2196f3; color:#fff; padding:12px; border-radius:8px; border:none; cursor:pointer; font-weight:600; }
+.message{ color:#b00020; text-align:center; margin-top:6px; font-weight:500; }
+.alt-link{ text-align:center; margin-top:10px; font-size:14px; }
+.blue{ color:#007bff; text-decoration:none; }
+.blue:hover{ text-decoration:underline; }
