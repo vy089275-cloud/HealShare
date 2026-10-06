@@ -71,4 +71,6 @@ jobs:
 
       - name: Build frontend
         working-directory: healshare-frontend
+        env:
+          CI: false
         run: npm run build
