@@ -43,6 +43,9 @@ jobs:
         working-directory: healshare-backend
         env:
           DB_PASSWORD: postgres
-          SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/healshare
-          SPRING_DATASOURCE_USERNAME: postgres
-        run: ./mvnw clean test
+        run: >
+          ./mvnw clean test
+          -Dspring.datasource.url=jdbc:postgresql://localhost:5432/healshare
+          -Dspring.datasource.username=postgres
+          -Dspring.datasource.password=postgres
+          -Dspring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
