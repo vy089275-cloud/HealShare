@@ -49,3 +49,26 @@ jobs:
           -Dspring.datasource.username=postgres
           -Dspring.datasource.password=postgres
           -Dspring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+
+  frontend-build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: healshare-frontend/package-lock.json
+
+      - name: Install frontend dependencies
+        working-directory: healshare-frontend
+        run: npm ci
+
+      - name: Build frontend
+        working-directory: healshare-frontend
+        run: npm run build
