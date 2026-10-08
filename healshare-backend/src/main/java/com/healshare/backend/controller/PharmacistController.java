@@ -15,7 +15,10 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/api/pharmacists")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {
+        "http://localhost:3000",
+        "https://healshare.vercel.app"
+})
 public class PharmacistController {
 
     @Autowired
