@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
+import API_URL from "../api";
 import "../customer/customerStyles.css";
 import profileIcon from "../assets/profile-icon.png";
 import CustReservationProfile from "./CustReservationProfile";
@@ -35,7 +36,7 @@ function CustomerReservations() {
   const fetchReservations = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8080/reservations/customer/${customerId}`,
+       `${API_URL}/reservations/customer/${customerId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setReservations(res.data || []);

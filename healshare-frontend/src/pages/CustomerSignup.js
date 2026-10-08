@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
+import API_URL from "../api";
 import "./CustomerSignup.css";
 
 
@@ -30,7 +31,7 @@ import "./CustomerSignup.css";
       return;
     }
     try {
-      const res = await axios.post("http://localhost:8080/api/customers/signup", form);
+      const res = await axios.post(`${API_URL}/api/customers/signup`, form);
       setMessage(res?.data || "Customer Registered Successfully!");
       if (res.status === 200) {
         setTimeout(() => navigate("/customer/login"), 800);

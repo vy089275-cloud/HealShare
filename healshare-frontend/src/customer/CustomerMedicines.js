@@ -5,6 +5,7 @@ import CustomerMedicineCard from "./CustomerMedicineCard";
 import PharProfileModal from "./PharProfileModal";
 import "./customerStyles.css";
 import CustDashboardBackButton from "../components/CustDashboardBackButton";
+import API_URL from "../api";
 
 
 function CustomerMedicines() {
@@ -22,7 +23,7 @@ fetchMedicines();
 const fetchMedicines = async () => {
 try {
 const token = sessionStorage.getItem("token");
-const res = await axios.get("http://localhost:8080/medicines/all", {
+const res = await axios.get(`${API_URL}/medicines/all`, {
 headers: { Authorization: `Bearer ${token}` },
 });
 setMedicines(res.data || []);
@@ -122,7 +123,7 @@ const handleReserve = async () => {
     await Promise.all(
       items.map((item) =>
         axios.post(
-          "http://localhost:8080/reservations",
+         `${API_URL}/reservations`,
           {
             customerId: customer.id,
             medicineId: item.medicineId,

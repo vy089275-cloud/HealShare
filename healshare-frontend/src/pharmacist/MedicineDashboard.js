@@ -8,6 +8,7 @@ import Sidebar from "./Sidebar";
 import "./MedicineDashboard.css";
 import { useNavigate } from "react-router-dom";
 import PharDashboardBackButton from "../components/PharDashboardBackButton";
+import API_URL from "../api";
 
 function MedicineDashboard() {
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ function MedicineDashboard() {
 
     try {
       const res = await axios.get(
-        "http://localhost:8080/notifications/my",
+        `${API_URL}/notifications/my`,
         authHeaders
       );
       setNotifications(Array.isArray(res.data) ? res.data : []);
@@ -62,7 +63,7 @@ function MedicineDashboard() {
 
     try {
       const res = await axios.get(
-        "http://localhost:8080/medicines",
+        `${API_URL}/medicines`,
         authHeaders
       );
       setMedicines(Array.isArray(res.data) ? res.data : []);
@@ -79,7 +80,7 @@ function MedicineDashboard() {
 
     const run = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/medicines", authHeaders);
+        const res = await axios.get(`${API_URL}/medicines`, authHeaders);
         const list = Array.isArray(res.data) ? res.data : [];
         const toDelete = list.filter((m) => getDaysLeft(m.expiry) <= 1);
 
@@ -112,7 +113,7 @@ function MedicineDashboard() {
 
     try {
       await axios.post(
-        "http://localhost:8080/medicines",
+       `${API_URL}/medicines`,
         { ...medicine },
         authHeaders
       );
@@ -139,7 +140,7 @@ function MedicineDashboard() {
       await Promise.all(
         ids.map((id) =>
           axios.put(
-            `http://localhost:8080/medicines/${id}`,
+           `${API_URL}/medicines/${id}`,
             editedRows[id],
             authHeaders
           )
@@ -165,7 +166,7 @@ function MedicineDashboard() {
       // STEP 1: Preliminary check
       for (const id of ids) {
         const res = await axios.delete(
-          `http://localhost:8080/medicines/${id}?confirm=false`,
+         `${API_URL}/medicines/${id}?confirm=false`,
           authHeaders
         );
         if (res.data && res.data.includes("⚠️")) warnings.push(res.data);
@@ -185,7 +186,7 @@ function MedicineDashboard() {
       await Promise.all(
         ids.map((id) =>
           axios.delete(
-            `http://localhost:8080/medicines/${id}?confirm=true`,
+            `${API_URL}/medicines/${id}?confirm=true`,
             authHeaders
           )
         )

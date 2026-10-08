@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./ProfileModal.css";
 import axios from "axios";
+import API_URL from "../api";
 
 export default function ProfileModal({ onClose }) {
   const [pharmacist, setPharmacist] = useState(null);
@@ -24,7 +25,7 @@ export default function ProfileModal({ onClose }) {
   useEffect(() => {
     const token = sessionStorage.getItem("token");
     axios
-      .get("http://localhost:8080/api/pharmacists/me", {
+      .get(`${API_URL}/api/pharmacists/me`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setPharmacist(res.data))
@@ -48,7 +49,7 @@ export default function ProfileModal({ onClose }) {
     try {
       const token = sessionStorage.getItem("token");
       await axios.put(
-        "http://localhost:8080/api/pharmacists/update",
+        `${API_URL}/api/pharmacists/update`,
         {
           pharmacyName: pharmacist.pharmacyName,
           email: pharmacist.email,
@@ -70,7 +71,7 @@ export default function ProfileModal({ onClose }) {
   const deleteAccount = async () => {
     try {
       const token = sessionStorage.getItem("token");
-      await axios.delete("http://localhost:8080/api/pharmacists/delete", {
+      await axios.delete(`${API_URL}/api/pharmacists/delete`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       sessionStorage.removeItem("token");

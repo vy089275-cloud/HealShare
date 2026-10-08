@@ -3,13 +3,14 @@ import axios from "axios";
 import "./Notification.css";
 import { toast } from "react-toastify";
 import PharDashboardBackButton from "../components/PharDashboardBackButton";
+import API_URL from "../api";
 
 export default function Notifications() {
   const [notifications, setNotifications] = useState([]);
 
   const fetchNotifications = useCallback(async () => {
     try {
-      const res = await axios.get("http://localhost:8080/notifications/my", {
+      const res = await axios.get(`${API_URL}/notifications/my`, {
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
@@ -29,7 +30,7 @@ export default function Notifications() {
   const markAllRead = async () => {
     try {
       await axios.put(
-        "http://localhost:8080/notifications/mark-all-read",
+        `${API_URL}/notifications/mark-all-read`,
         {},
         { headers: { Authorization: `Bearer ${sessionStorage.getItem("token")}` } }
       );
@@ -45,7 +46,7 @@ export default function Notifications() {
     if (!window.confirm("Delete all notifications?")) return;
 
     try {
-      await axios.delete("http://localhost:8080/notifications/clear", {
+      await axios.delete(`${API_URL}/notifications/clear`, {
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },

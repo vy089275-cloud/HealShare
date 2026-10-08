@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./CustomerProfileModal.css";
 import axios from "axios";
+import API_URL from "../api";
 
 export default function CustomerProfileModal({ onClose }) {
   const [customer, setCustomer] = useState(null);
@@ -24,7 +25,7 @@ export default function CustomerProfileModal({ onClose }) {
   useEffect(() => {
     const token = sessionStorage.getItem("token");
     axios
-      .get("http://localhost:8080/api/customers/me", {
+      .get(`${API_URL}/api/customers/me`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setCustomer(res.data))
@@ -48,7 +49,7 @@ export default function CustomerProfileModal({ onClose }) {
     try {
       const token = sessionStorage.getItem("token");
       await axios.put(
-        "http://localhost:8080/api/customers/update",
+        `${API_URL}/api/customers/update`,
         {
           name: customer.name,
           email: customer.email,
@@ -70,7 +71,7 @@ export default function CustomerProfileModal({ onClose }) {
   const deleteAccount = async () => {
     try {
       const token = sessionStorage.getItem("token");
-      await axios.delete("http://localhost:8080/api/customers/delete", {
+      await axios.delete(`${API_URL}/api/customers/delete`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       sessionStorage.removeItem("token");

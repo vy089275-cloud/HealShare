@@ -5,6 +5,7 @@ import PharReservationProfile from "./PharReservationProfile"; // pharmacist pro
 import "../customer/customerStyles.css";
 import profileIcon from "../assets/profile-icon.png";
 import PharDashboardBackButton from "../components/PharDashboardBackButton";
+import API_URL from "../api";
 
 function PharmacistReservations() {
   const [reservations, setReservations] = useState([]);
@@ -21,7 +22,7 @@ function PharmacistReservations() {
   const fetchReservations = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8080/reservations/pharmacist/${pharmacistId}`,
+        `${API_URL}/reservations/pharmacist/${pharmacistId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setReservations(res.data || []);
@@ -33,7 +34,7 @@ function PharmacistReservations() {
   const handleApprove = async (resId) => {
     try {
       await axios.put(
-        `http://localhost:8080/reservations/${resId}/approve`,
+       `${API_URL}/reservations/${resId}/approve`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -46,7 +47,7 @@ function PharmacistReservations() {
   const handleCollected = async (resId) => {
   try {
     await axios.put(
-      `http://localhost:8080/reservations/${resId}/collected`,
+      `${API_URL}/reservations/${resId}/collected`,
       {},
       { headers: { Authorization: `Bearer ${token}` } }
     );

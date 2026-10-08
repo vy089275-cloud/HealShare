@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import BackButton from "../components/BackButton";
+import API_URL from "../api";
 import "./PharmacistSignup.css";
 
   function PharmacistSignup() {
@@ -79,7 +80,7 @@ import "./PharmacistSignup.css";
       fd.append("pharmacist", new Blob([JSON.stringify(form)], { type: "application/json" }));
       files.forEach((f) => fd.append("photos", f));
 
-      const res = await axios.post("http://localhost:8080/api/pharmacists/signup", fd, {
+      const res = await axios.post(`${API_URL}/api/pharmacists/signup`, fd, {
         headers: { "Content-Type": "multipart/form-data" },
         timeout: 120000,
       });

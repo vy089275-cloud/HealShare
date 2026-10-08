@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
+import API_URL from "../api";
 import "./CustomerLogin.css";
 
 function CustomerLogin() {
@@ -16,7 +17,7 @@ function CustomerLogin() {
 
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/customers/login",
+        `${API_URL}/api/customers/login`,
         { email, password },
         { withCredentials: false }
       );
